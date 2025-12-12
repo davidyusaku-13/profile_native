@@ -1,5 +1,7 @@
-name = "profile-native"
+name = "profile"
 compatibility_date = "2025-12-12"
+workers_dev = true
+preview_urls = true
 
 # Static assets configuration - deploy all files in the current directory
 [assets]
