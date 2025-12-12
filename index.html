@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>David Yusaku Setiyono</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets.css"/>
+  </head>
+  <body>
+    <!-- cta -->
+    <div class="btn-call text-black" id="btn-call-hover">
+      <div class="p-3 btn-hidden" id="btn-call-show">
+        <a href="https://wa.me/6281333852187" class="text-black"><i class="bi bi-whatsapp mr-2"></i></a>
+        <a href="https://www.instagram.com/davidbukangadgetin?igsh=cHBxc3JyNTJpeTBu" class="text-black"><i class="bi bi-instagram mr-2"></i></a>
+        <a href="https://www.linkedin.com/in/david-yusaku-setiyono?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BRswpA%2BUwRKGwjjsE%2BReNcQ%3D%3D" class="text-black"><i class="bi bi-linkedin mr-2"></i></a>
+        <a href="https://t.me/davidyusaku" class="text-black"><i class="bi bi-telegram mr-2"></i></a>
+      </div>
+      <i class="bi bi-chat-left-text-fill p-3"></i>
+    </div>
+
+    <!-- <nav> -->
+    <nav class="fixed top-0 left-0 right-0 flex items-center justify-between lg:px-10 py-3 z-50" id="nav-bar">
+      <div class="w-full flex items-center">
+        <button
+          class="ml-auto lg:hidden border-0 bg-transparent"
+          type="button"
+          id="offcanvas-toggle"
+        >
+          <span><i class="bi bi-list text-white text-4xl"></i></span>
+        </button>
+        <div class="hidden lg:flex w-full items-center" id="navbarSupportedContent">
+          <a class="absolute text-white font-bold" href="./index.html"
+          >Home</a
+          >
+          <ul class="flex ml-auto mb-0 list-none gap-4">
+            <li class="nav-item">
+              <a class="nav-link nav-link-1" aria-current="page" href="#home"
+              >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-1" aria-current="page" href="#experience"
+              >Experience</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-1" aria-current="page" href="#portfolio"
+              >Portfolio</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- profile pic -->
+    <div class="experience w-full relative">
+    <div class="experience-slide bg-black w-full" id="home">
+      <div class="profile-box" style="margin-left: 5vw; margin-right: 5vw">
+        <div class="flex flex-wrap h-full w-full">
+          <div
+            class="position-custom xl:w-5/12 w-full h-full flex justify-center items-center text-center xl:text-left"
+          >
+            <div>
+              <p style="color: goldenrod" class="font-bold">Hello I am</p>
+              <h2 class="text-white">David Yusaku Setiyono</h2>
+              <div class="text">
+                <div class="text-1">I am a</div>
+                <ul class="text-2">
+                  <li><span>Website Developer</span></li>
+                  <li><span>Desktop Developer</span></li>
+                </ul>
+              </div>
+              <p style="color: rgb(181, 181, 181)">
+                Passionate about exploring Arduino, Raspberry Pi, Python, Qt-QML, and
+                WebDev with PHP and TailwindCSS.
+              </p>
+              <div class="flex justify-center xl:justify-start">
+                <a href="https://wa.me/6281333852187" class="btn-contact">Contact me</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="xl:w-6/12 d-custom-none h-full hidden xl:flex items-end justify-center"
+          >
+            <div class="profile-image-responsive">
+              <img
+                src="profile.png"
+                style="height: 45vw; width: 45vw"
+                alt="David Yusaku Setiyono profile photo"
+                class="profile-image"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="more-experience">
+        <span
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="13"
+          fill="currentColor"
+          class="bi bi-arrow-down"
+          viewBox="0 1 16 17"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+          />
+        </svg></span
+        ><a href="#experience" class="no-underline text-white">More Experience</a>
+        <span
+        ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="13"
+            fill="currentColor"
+            class="bi bi-arrow-down"
+            viewBox="0 1 16 17"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- experience -->
+    <div class="experience-slide" id="experience">
+      <div class="flex w-full flex-col xl:flex-row">
+        <div class="year-1">
+          <h1 style="font-size: 1.2em" class="fade-hidden">2023</h1>
+        </div>
+        <div
+          class="experience-content h-full flex justify-center items-center flex-col"
+        >
+          <div class="text-left">
+            <h1 style="color: #c9a959" class="fade-hidden-up">
+              Head of Student Welfare
+            </h1>
+            <p class="text-gray-300 fade-hidden-opa">
+              Leader in a informatic engineering student association who takes
+              care of student's well-being. Making sure students are safe,
+              happy, and supported in their physical, emotional, and social
+              needs, creating a positive learning environment. Involves
+              managing services like counseling, handling crises, building a
+              sense of community, and ensuring student's overall welfare.
+            </p>
+            <h1 style="color: #c9a959" class="fade-hidden-up">
+              Team of Equipment and Logistic
+            </h1>
+            <p class="text-white fade-hidden-opa">
+              Taking care of getting and organizing all the things the
+              organization needs, like equipment and supplies. Making sure
+              everything is in the right place and works well, helping the
+              organization do its work smoothly.
+            </p>
+            <h1 style="color: #c9a959" class="fade-hidden-up">
+              Extracurricular Coding Mentor
+            </h1>
+            <p class="text-white fade-hidden-opa">
+              Organize activities, like coding workshops, to make learning fun
+              and practical. Encourages students to explore coding, develop
+              problem-solving skills, and consider future studies or careers
+              in technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="experience-slide">
+      <div class="flex w-full flex-col xl:flex-row">
+        <div class="year-2">
+          <h1 style="font-size: 1.2em" class="fade-hidden">2022</h1>
+        </div>
+        <div
+          class="experience-content h-full flex justify-center items-center flex-col"
+        >
+          <div class="text-left">
+            <h1 style="color: #ac8181" class="fade-hidden-up">
+              Head of Informatic Seminar
+            </h1>
+            <p class="text-gray-300 fade-hidden-opa">
+              Responsible for coordinating speakers and topics, creating a
+              platform for learning and discussion. Attendees can expect to
+              gain valuable insights into the latest developments and trends
+              in the field of informatics, making it an excellent opportunity
+              for knowledge exchange and networking.
+            </p>
+            <h1 style="color: #ac8181" class="fade-hidden-up">
+              Head of Professional Skills
+            </h1>
+            <p class="text-gray-300 fade-hidden-opa">
+              Responsible for guiding and organizing sessions that focus on
+              enhancing essential skills needed in a professional setting.
+              Oversees the planning of workshops and seminars covering areas
+              such as communication, teamwork, time management, and
+              leadership.
+            </p>
+            <h1 style="color: #ac8181" class="fade-hidden-up">
+              Team of Tracer Study
+            </h1>
+            <p class="text-gray-300 fade-hidden-opa">
+              Dedicated to providing assistance and support to alumni of Ma
+              Chung University. Involves managing inquiries, addressing
+              concerns, and maintaining positive communication with the
+              alumni.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="experience-slide relative">
+      <div class="flex w-full flex-col xl:flex-row">
+        <div class="year-3">
+          <h1 style="font-size: 1.2em" class="fade-hidden">2021</h1>
+        </div>
+        <div
+          class="experience-content h-full flex justify-center items-center flex-col"
+        >
+          <div class="text-left">
+            <h1 style="color: #cfceca" class="fade-hidden-up">
+              AIA Event Organizer
+            </h1>
+            <p class="text-gray-300 fade-hidden-opa">
+              Planning and coordinating healthy AIA walking event. Responsible
+              for organizing and managing the logistics of events that promote
+              a healthy and active lifestyle, typically involving community
+              participation in a AIA walking activity.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="more-experience">
+        <span
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="13"
+          fill="currentColor"
+          class="bi bi-arrow-down"
+          viewBox="0 1 16 17"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+          />
+        </svg></span
+        ><a href="#portfolio" class="no-underline text-white">More Portfolio</a>
+        <span
+        ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="13"
+            fill="currentColor"
+            class="bi bi-arrow-down"
+            viewBox="0 1 16 17"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO -->
+    <div class="experience-slide p-0 computer-view" id="portfolio" style="overflow-x: hidden;">
+      <div class="flex flex-wrap w-full hidden xl:flex fade-hidden-portfo">
+        <div class="xl:w-7/12 w-full h-full flex items-center justify-end m-0 p-0">
+          <img src="restaurant.svg" class="w-[90%]" alt="Restaurant Cashier Website screenshot" loading="lazy">
+        </div>
+        <div class="xl:w-5/12 h-full flex items-center justify-center portfolio-desc-1 flex-col fade-hidden-portfo">
+          <h2 class="portfolio-title-1 mb-5">Restaurant Cashier Website</h2>
+          <p class="mx-5">
+            Skillfully assembled with a thoughtful blend of HTML, CSS, Bootstrap, PHP, and JavaScript, this special cashier website is custom-built to serve the needs of a cherished church food company. Each element is carefully crafted to ensure a seamless experience for both customers and administrators alike, reflecting our commitment to quality and efficiency.</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap w-full h-full xl:hidden m-0 p-0">
+        <div class="md:w-5/12 w-full flex items-center justify-center flex-col portfolio-desc-1 text-center">
+          <h2 class="mb-0 portfolio-title-1">Restaurant Cashier Website</h2>
+          <p class="mt-4 mx-1">
+            Skillfully assembled with a thoughtful blend of HTML, CSS, Bootstrap, PHP, and JavaScript, this special cashier website is custom-built to serve the needs of a cherished church food company. Each element is carefully crafted to ensure a seamless experience for both customers and administrators alike, reflecting our commitment to quality and efficiency.</p>
+        </div>
+        <div class="md:w-7/12 w-full flex items-center justify-start">
+          <img src="restaurant.svg" class="w-full" alt="Restaurant Cashier Website screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="experience-slide p-0 computer-view">
+      <div class="flex flex-wrap w-full hidden xl:flex fade-hidden-portfo">
+        <div class="xl:w-7/12 w-full h-full flex items-center justify-end m-0 p-0">
+          <img src="pawshop.svg" class="w-[90%]" alt="Pawshop Website screenshot" loading="lazy">
+        </div>
+        <div class="xl:w-5/12 h-full flex items-center justify-center portfolio-desc-2 flex-col fade-hidden-portfo">
+          <h2 class="portfolio-title-1 mb-5">Pawshop Website</h2>
+          <p class="mx-5">
+            PawShop is a cat food online store made with HTML, CSS, PHP, and JavaScript. We've made sure everything works smoothly for customers and managers. We're all about making things simple and great for everyone..</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap w-full h-full xl:hidden m-0 p-0">
+        <div class="md:w-5/12 w-full flex items-center justify-center flex-col portfolio-desc-2 text-center">
+          <h2 class="mb-0 portfolio-title-1">Pawshop Website</h2>
+          <p class="mt-4 mx-1">
+            PawShop is a cat food online store made with HTML, CSS, PHP, and JavaScript. We've made sure everything works smoothly for customers and managers. We're all about making things simple and great for everyone.</p>
+        </div>
+        <div class="md:w-7/12 w-full flex items-center justify-start">
+          <img src="pawshop.svg" class="w-full" alt="Pawshop Website screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+
+    <!-- Offcanvas Menu -->
+    <div
+      class="fixed inset-0 bg-black/50 z-40 hidden"
+      id="offcanvas-backdrop"
+    ></div>
+    <div
+      class="fixed top-0 left-0 h-full bg-gray-900 text-white z-50 transform -translate-x-full transition-transform duration-300"
+      id="offcanvasExample"
+      style="width: 90%"
+    >
+      <div class="p-4 w-full">
+        <div class="flex justify-between w-full">
+          <h5 class="text-xl font-bold" id="offcanvasExampleLabel">David</h5>
+          <button class="text-white" id="offcanvas-close"
+          ><i class="bi bi-x-lg"></i
+          ></button>
+        </div>
+      </div>
+      <div class="p-4 relative h-full">
+        <ul class="offcanvas-item">
+          <li><i class="bi bi-house-door-fill mr-2"></i><a href="#home">Home</a></li>
+          <li>
+            <i class="bi bi-person-fill-gear mr-2"></i><a href="#experience">Experience</a>
+          </li>
+          <li>
+            <a href="#portfolio"><i class="bi bi-briefcase-fill mr-2"></i>Portfolio</a>
+          </li>
+        </ul>
+        <div class="absolute bottom-20 left-0 m-3">
+          <div class="flex flex-row text-2xl">
+            <div><a href="https://wa.me/6281333852187" class="text-white"><i class="bi bi-whatsapp mr-4"></i></a></div>
+            <div><a href="https://www.instagram.com/davidbukangadgetin?igsh=cHBxc3JyNTJpeTBu" class="text-white"><i class="bi bi-instagram mr-4"></i></a></div>
+            <div><a href="https://www.linkedin.com/in/david-yusaku-setiyono?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BRswpA%2BUwRKGwjjsE%2BReNcQ%3D%3D" class="text-white"><i class="bi bi-linkedin mr-4"></i></a></div>
+            <div><a href="https://t.me/davidyusaku" class="text-white"><i class="bi bi-telegram"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
