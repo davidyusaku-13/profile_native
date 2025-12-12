@@ -1,0 +1,6 @@
+name = "profile-native"
+compatibility_date = "2025-12-12"
+
+# Static assets configuration - deploy all files in the current directory
+[assets]
+directory = "."
