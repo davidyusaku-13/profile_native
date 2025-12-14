@@ -1,358 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>David Yusaku Setiyono | Developer & Creator</title>
-    <meta name="description" content="Portfolio of David Yusaku Setiyono - Website Developer, Desktop Developer, and Technology Enthusiast"/>
-
-    <!-- Fonts: Cormorant Garamond for elegance, Plus Jakarta Sans for modern clarity -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="assets.css"/>
-  </head>
-  <body>
-    <!-- Subtle grain overlay for texture -->
-    <div class="grain-overlay" aria-hidden="true"></div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Space Grotesk", "sans-serif"],
+            },
+            colors: {
+              accent: "#8b5cf6", // Violet-500
+              dark: "#0f172a", // Slate-900
+              card: "#1e293b", // Slate-800
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
 
-    <!-- Floating CTA -->
-    <div class="btn-call" id="btn-call-hover">
-      <div class="btn-call-icons" id="btn-call-show">
-        <a href="https://wa.me/6281333852187" class="btn-call-link" aria-label="WhatsApp">
-          <i class="bi bi-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/davidbukangadgetin" class="btn-call-link" aria-label="Instagram">
-          <i class="bi bi-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/david-yusaku-setiyono" class="btn-call-link" aria-label="LinkedIn">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="https://t.me/davidyusaku" class="btn-call-link" aria-label="Telegram">
-          <i class="bi bi-telegram"></i>
-        </a>
-      </div>
-      <div class="btn-call-trigger">
-        <i class="bi bi-chat-left-text-fill"></i>
-      </div>
+      /* Dark mode glass panel */
+      .dark .glass-panel {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Light mode glass panel */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .tab-active {
+        background-color: #8b5cf6;
+        color: white;
+      }
+
+      /* Smooth fade animation */
+      .fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Light mode timeline border */
+      .dark .timeline-border {
+        border-color: rgb(51, 65, 85);
+      }
+      .timeline-border {
+        border-color: rgb(203, 213, 225);
+      }
+
+      /* Light mode timeline dot border */
+      .dark .timeline-dot {
+        border-color: rgb(30, 41, 59);
+      }
+      .timeline-dot {
+        border-color: rgb(241, 245, 249);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-100 dark:bg-dark text-slate-600 dark:text-slate-300 font-sans min-h-screen md:h-screen w-full md:overflow-hidden overflow-y-auto flex items-center justify-center selection:bg-accent selection:text-white relative transition-colors duration-300"
+  >
+    <!-- Abstract Background Shapes -->
+    <div
+      class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
+    >
+      <div
+        class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-purple-300/30 dark:bg-purple-900/20 rounded-full blur-[100px]"
+      ></div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-blue-300/30 dark:bg-blue-900/20 rounded-full blur-[100px]"
+      ></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="nav-main" id="nav-bar">
-      <div class="nav-container">
-        <a class="nav-brand" href="#home">
-          <span class="nav-brand-text">DYS</span>
-        </a>
-
-        <!-- Mobile Toggle -->
-        <button
-          class="nav-toggle"
-          type="button"
-          id="offcanvas-toggle"
-          aria-label="Open navigation menu"
+    <!-- Main Container -->
+    <main
+      class="w-full max-w-6xl h-auto md:h-[85vh] p-4 md:p-8 flex flex-col md:flex-row gap-6"
+    >
+      <!-- Left Sidebar (Profile) -->
+      <aside class="w-full md:w-1/3 flex flex-col gap-6 shrink-0 md:h-full">
+        <!-- Profile Card -->
+        <div
+          class="glass-panel rounded-3xl p-8 flex flex-col items-center text-center justify-center flex-grow shadow-2xl relative overflow-hidden group"
         >
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
+          <div
+            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-accent"
+          ></div>
 
-        <!-- Desktop Navigation -->
-        <div class="nav-menu" id="navbarSupportedContent">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">
-                <span class="nav-link-text">Home</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#experience">
-                <span class="nav-link-text">Experience</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">
-                <span class="nav-link-text">Portfolio</span>
-              </a>
-            </li>
-          </ul>
+          <div class="relative w-32 h-32 mb-6">
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-accent rounded-full animate-pulse opacity-75"
+            ></div>
+            <img
+              src="./profile.png"
+              alt="Profile"
+              class="relative w-full h-full rounded-full object-cover z-10 bg-slate-200"
+            />
+          </div>
+
+          <h1 class="text-3xl font-bold text-slate-800 dark:text-white mb-2 tracking-tight">
+            David Yusaku Setiyono
+          </h1>
+          <p class="text-accent font-medium mb-6">
+            Full Stack Web Developer | Android Developer(Flutter)
+          </p>
+
+          <div class="flex gap-4 mb-8">
+            <a
+              href="#"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="#"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+
+          <button
+            class="w-full py-3 rounded-xl bg-slate-200 dark:bg-slate-700/30 border border-slate-300 dark:border-slate-600 hover:bg-accent hover:border-accent text-slate-700 dark:text-white font-medium transition-all duration-300 group-hover:shadow-lg shadow-accent/20 flex items-center justify-center gap-2 hover:text-white"
+            onclick="document.getElementById('email-display').classList.toggle('hidden')"
+          >
+            <i class="fa-brands fa-whatsapp"></i> Contact Me
+          </button>
+          <div id="email-display" class="hidden mt-3 text-sm text-slate-500 dark:text-slate-400">
+            hello@alex.dev
+          </div>
         </div>
-      </div>
-    </nav>
+      </aside>
 
-    <!-- Main Content Container -->
-    <div class="experience w-full relative" id="scroll-container">
+      <!-- Right Content Area -->
+      <div class="w-full md:w-2/3 md:h-full flex flex-col gap-6">
+        <!-- Navigation Tabs -->
+        <nav
+          class="glass-panel rounded-2xl p-2 flex justify-between md:justify-start gap-2 shadow-lg shrink-0"
+        >
+          <button
+            onclick="switchTab('about')"
+            id="tab-about"
+            class="tab-btn tab-active px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-700/50 flex-1 md:flex-none"
+          >
+            About
+          </button>
+          <button
+            onclick="switchTab('portfolio')"
+            id="tab-portfolio"
+            class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-700/50 flex-1 md:flex-none text-slate-500 dark:text-slate-400"
+          >
+            Edu & Exp
+          </button>
+          <button
+            onclick="switchTab('resume')"
+            id="tab-resume"
+            class="tab-btn px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-700/50 flex-1 md:flex-none text-slate-500 dark:text-slate-400"
+          >
+            Resume
+          </button>
+        </nav>
 
-      <!-- Hero Section -->
-      <section class="section-hero" id="home">
-        <div class="hero-content">
-          <div class="hero-grid">
-            <!-- Text Content -->
-            <div class="hero-text">
-              <div class="hero-text-inner">
-                <p class="hero-greeting fade-hero">Hello, I am</p>
-                <h1 class="hero-name fade-hero" style="animation-delay: 0.1s">
-                  David Yusaku<br/>
-                  <span class="hero-name-accent">Setiyono</span>
-                </h1>
-                <div class="hero-role fade-hero" style="animation-delay: 0.2s">
-                  <span class="hero-role-prefix">I am a</span>
-                  <div class="hero-role-carousel">
-                    <ul class="hero-role-list">
-                      <li><span>Website Developer</span></li>
-                      <li><span>Desktop Developer</span></li>
-                    </ul>
+        <!-- Content Panel -->
+        <div
+          class="glass-panel rounded-3xl p-8 md:flex-grow relative md:overflow-hidden shadow-2xl min-h-[400px]"
+        >
+          <!-- ABOUT SECTION -->
+          <div
+            id="content-about"
+            class="content-section h-full flex flex-col justify-center fade-in"
+          >
+            <h2
+              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center text-accent text-sm"
+                ><i class="fas fa-user"></i
+              ></span>
+              Hello There!
+            </h2>
+            <p class="text-lg leading-relaxed mb-6 text-slate-600 dark:text-slate-300">
+              I'm a creative developer based in Indonesia(Malang, East Java),
+              passionate about building digital products that are both beautiful
+              and functional. I bridge the gap between design and engineering.
+            </p>
+            <div class="mb-8">
+              <div
+                class="p-4 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center gap-3"
+              >
+                <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+                <div>
+                  <div class="text-lg font-bold text-green-400">Available for Work</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Open to freelance & full-time opportunities</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="text-sm font-semibold uppercase text-slate-400 dark:text-slate-500 mb-4 tracking-wider"
+              >
+                Tech Stack
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 text-sm"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-sm"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-sm"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 text-sm"
+                  >Figma</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- RESUME SECTION -->
+          <div
+            id="content-resume"
+            class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
+          >
+            <h2
+              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
+            >
+              <span
+                class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 text-sm"
+                ><i class="fas fa-briefcase"></i
+              ></span>
+              Experience
+            </h2>
+
+            <div
+              class="space-y-6 relative border-l timeline-border ml-3 pl-8 pb-4"
+            >
+              <!-- Item 1 -->
+              <div class="relative">
+                <span
+                  class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-slate-400 dark:bg-slate-600"
+                ></span>
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white">Pawshop</h3>
+                <p class="text-accent text-sm mb-2">E-Commerce Pet Shop • Aug - Nov 2023</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">
+                  E-commerce pet shop application built with PHP, MySQL, Bootstrap, and jQuery. Features role-based access for admin and users, product management, transactions, session-based shopping cart, and admin dashboard.
+                </p>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">PHP</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">MySQL</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Bootstrap</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">jQuery</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="relative">
+                <span
+                  class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-accent"
+                ></span>
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white">ALL Detector</h3>
+                <p class="text-accent text-sm mb-2">AI Medical Diagnosis • Jan - Aug 2025</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">
+                  End-to-end AI-based Acute Lymphoblastic Leukemia detection system. PyTorch pipeline with Optuna optimization, model comparison (EfficientNet-B2, MobileNetV3, YOLO11x-cls), ONNX deployment to Flutter for real-time mobile inference.
+                </p>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Flutter</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">PyTorch</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">ONNX</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Computer Vision</span>
+                </div>
+                <a href="https://github.com/davidyusaku-13/ALL_Detector" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-accent hover:underline">
+                  <i class="fab fa-github"></i> View on GitHub
+                </a>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="relative">
+                <span
+                  class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-accent"
+                ></span>
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white">PRIMA</h3>
+                <p class="text-accent text-sm mb-2">Healthcare Platform • Aug - Nov 2025</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">
+                  Fullstack patient management and health information platform. Features health reminders, educational content management, and WhatsApp integration. Built with Next.js, Bun, Drizzle ORM, Clerk, and WAHA API.
+                </p>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Next.js</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">TypeScript</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">PostgreSQL</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Redis</span>
+                </div>
+                <a href="https://prima-production.up.railway.app/" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-accent hover:underline">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PORTFOLIO SECTION -->
+          <div
+            id="content-portfolio"
+            class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
+          >
+            <h2
+              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
+            >
+              <span
+                class="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400 text-sm"
+                ><i class="fas fa-graduation-cap"></i
+              ></span>
+              Education & Experience
+            </h2>
+
+            <!-- Education -->
+            <div class="mb-8">
+              <h3 class="text-sm font-semibold uppercase text-slate-400 dark:text-slate-500 mb-4 tracking-wider flex items-center gap-2">
+                <i class="fas fa-graduation-cap text-xs"></i> Education
+              </h3>
+              <div class="p-5 rounded-xl bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-700/50">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-lg font-bold text-slate-800 dark:text-white">Universitas Ma Chung</h4>
+                    <p class="text-accent text-sm">Informatics Engineering</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium">GPA 3.52</span>
                   </div>
                 </div>
-                <p class="hero-description fade-hero" style="animation-delay: 0.3s">
-                  Passionate about exploring Arduino, Raspberry Pi, Python, Qt-QML, and
-                  WebDev with PHP and TailwindCSS.
+                <p class="text-xs text-slate-400 dark:text-slate-500 mb-3">Aug 2021 - Aug 2025</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">
+                  A university focused on developing graduates with strong character, creativity, and global competitiveness through education, research, and community service. With core values of integrity, professionalism, creativity, and responsibility.
                 </p>
-                <div class="hero-cta fade-hero" style="animation-delay: 0.4s">
-                  <a href="https://wa.me/6281333852187" class="btn-primary">
-                    <span>Contact me</span>
-                    <i class="bi bi-arrow-right"></i>
+                <a href="https://machung.ac.id/" target="_blank" class="inline-flex items-center gap-1 text-xs text-accent hover:underline">
+                  <i class="fas fa-external-link-alt"></i> machung.ac.id
+                </a>
+              </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="pb-4">
+              <h3 class="text-sm font-semibold uppercase text-slate-400 dark:text-slate-500 mb-4 tracking-wider flex items-center gap-2">
+                <i class="fas fa-briefcase text-xs"></i> Experience
+              </h3>
+              <div class="p-5 rounded-xl bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-700/50">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-lg font-bold text-slate-800 dark:text-white">Hongkong Viewtrix Technology Limited</h4>
+                    <p class="text-accent text-sm">Backend Firmware Desktop Developer</p>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mb-1">Feb 2024 - Jul 2024</p>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mb-3"><i class="fas fa-map-marker-alt"></i> Viewtrix Office, RnD Lt.5 Universitas Ma Chung</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">
+                  Internship at Viewtrix, an OLED display research and design company. Completed Python-Qt/PySide training then worked on SenseTool application as a backend developer. The app is used to read and configure ICs on displays. Successfully completed 2 of 3 core features within limited development time.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span class="px-2 py-0.5 rounded-full bg-slate-300/50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Python</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-300/50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Qt/PySide</span>
+                  <span class="px-2 py-0.5 rounded-full bg-slate-300/50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs">Desktop App</span>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                  <a href="https://github.com/davidyusaku-13/sensetool-viewtrix" target="_blank" class="inline-flex items-center gap-1 text-xs text-accent hover:underline">
+                    <i class="fab fa-github"></i> View on GitHub
+                  </a>
+                  <a href="https://www.viewtrixtech.com/en" target="_blank" class="inline-flex items-center gap-1 text-xs text-accent hover:underline">
+                    <i class="fas fa-external-link-alt"></i> viewtrixtech.com
                   </a>
                 </div>
               </div>
             </div>
-
-            <!-- Profile Image -->
-            <div class="hero-image">
-              <div class="hero-image-wrapper fade-hero" style="animation-delay: 0.3s">
-                <div class="hero-image-glow"></div>
-                <img
-                  src="profile.png"
-                  alt="David Yusaku Setiyono"
-                  class="hero-image-photo"
-                  loading="eager"
-                />
-              </div>
-            </div>
           </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <a href="#experience" class="scroll-indicator">
-          <span class="scroll-indicator-text">Experience</span>
-          <div class="scroll-indicator-line"></div>
-        </a>
-      </section>
-
-      <!-- Experience Sections -->
-      <section class="section-experience" id="experience">
-        <div class="experience-layout">
-          <div class="experience-year year-silver">
-            <span class="year-label fade-hidden">2021</span>
-          </div>
-          <div class="experience-content">
-            <div class="experience-items">
-              <article class="experience-item fade-hidden-up">
-                <h3 class="experience-title">AIA Event Organizer</h3>
-                <p class="experience-desc">
-                  Planning and coordinating healthy AIA walking event. Responsible
-                  for organizing and managing the logistics of events that promote
-                  a healthy and active lifestyle.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-experience">
-        <div class="experience-layout">
-          <div class="experience-year year-rose">
-            <span class="year-label fade-hidden">2022</span>
-          </div>
-          <div class="experience-content">
-            <div class="experience-items">
-              <article class="experience-item fade-hidden-up">
-                <h3 class="experience-title">Head of Informatic Seminar</h3>
-                <p class="experience-desc">
-                  Responsible for coordinating speakers and topics, creating a
-                  platform for learning and discussion about the latest developments
-                  in the field of informatics.
-                </p>
-              </article>
-              <article class="experience-item fade-hidden-up" style="animation-delay: 0.1s">
-                <h3 class="experience-title">Head of Professional Skills</h3>
-                <p class="experience-desc">
-                  Responsible for guiding and organizing sessions focusing on
-                  essential skills like communication, teamwork, time management,
-                  and leadership.
-                </p>
-              </article>
-              <article class="experience-item fade-hidden-up" style="animation-delay: 0.2s">
-                <h3 class="experience-title">Team of Tracer Study</h3>
-                <p class="experience-desc">
-                  Dedicated to providing assistance and support to alumni of Ma
-                  Chung University. Managing inquiries and maintaining positive
-                  communication.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-experience">
-        <div class="experience-layout">
-          <div class="experience-year year-gold">
-            <span class="year-label fade-hidden">2023</span>
-          </div>
-          <div class="experience-content">
-            <div class="experience-items">
-              <article class="experience-item fade-hidden-up">
-                <h3 class="experience-title">Head of Student Welfare</h3>
-                <p class="experience-desc">
-                  Leader in an informatic engineering student association who takes
-                  care of student's well-being. Making sure students are safe,
-                  happy, and supported in their physical, emotional, and social
-                  needs, creating a positive learning environment.
-                </p>
-              </article>
-              <article class="experience-item fade-hidden-up" style="animation-delay: 0.1s">
-                <h3 class="experience-title">Team of Equipment and Logistic</h3>
-                <p class="experience-desc">
-                  Taking care of getting and organizing all the things the
-                  organization needs, like equipment and supplies. Making sure
-                  everything is in the right place and works well.
-                </p>
-              </article>
-              <article class="experience-item fade-hidden-up" style="animation-delay: 0.2s">
-                <h3 class="experience-title">Extracurricular Coding Mentor</h3>
-                <p class="experience-desc">
-                  Organize activities, like coding workshops, to make learning fun
-                  and practical. Encourages students to explore coding and develop
-                  problem-solving skills.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <a href="#portfolio" class="scroll-indicator">
-          <span class="scroll-indicator-text">Portfolio</span>
-          <div class="scroll-indicator-line"></div>
-        </a>
-      </section>
-
-      <!-- Portfolio Sections -->
-      <section class="section-portfolio portfolio-gold" id="portfolio">
-        <div class="portfolio-layout">
-          <div class="portfolio-image fade-hidden-portfo">
-            <img src="restaurant.svg" alt="Restaurant Cashier Website" loading="lazy">
-          </div>
-          <div class="portfolio-content fade-hidden-portfo" style="animation-delay: 0.15s">
-            <span class="portfolio-label">Featured Project</span>
-            <h2 class="portfolio-title">Restaurant Cashier Website</h2>
-            <p class="portfolio-desc">
-              Skillfully assembled with a thoughtful blend of HTML, CSS, Bootstrap, PHP, and JavaScript,
-              this special cashier website is custom-built to serve the needs of a cherished church food company.
-            </p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">HTML</span>
-              <span class="portfolio-tag">CSS</span>
-              <span class="portfolio-tag">Bootstrap</span>
-              <span class="portfolio-tag">PHP</span>
-              <span class="portfolio-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-portfolio portfolio-rose">
-        <div class="portfolio-layout portfolio-layout-reverse">
-          <div class="portfolio-image fade-hidden-portfo">
-            <img src="pawshop.svg" alt="Pawshop Website" loading="lazy">
-          </div>
-          <div class="portfolio-content fade-hidden-portfo" style="animation-delay: 0.15s">
-            <span class="portfolio-label">Featured Project</span>
-            <h2 class="portfolio-title">Pawshop Website</h2>
-            <p class="portfolio-desc">
-              PawShop is a cat food online store made with HTML, CSS, PHP, and JavaScript.
-              We've made sure everything works smoothly for customers and managers.
-            </p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">HTML</span>
-              <span class="portfolio-tag">CSS</span>
-              <span class="portfolio-tag">PHP</span>
-              <span class="portfolio-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-content">
-          <p class="footer-text">David Yusaku Setiyono</p>
-          <div class="footer-social">
-            <a href="https://wa.me/6281333852187" class="footer-social-link" aria-label="WhatsApp">
-              <i class="bi bi-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/davidbukangadgetin" class="footer-social-link" aria-label="Instagram">
-              <i class="bi bi-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/david-yusaku-setiyono" class="footer-social-link" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-            <a href="https://t.me/davidyusaku" class="footer-social-link" aria-label="Telegram">
-              <i class="bi bi-telegram"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Offcanvas Menu -->
-    <div class="offcanvas-backdrop" id="offcanvas-backdrop"></div>
-    <div class="offcanvas" id="offcanvasExample">
-      <div class="offcanvas-header">
-        <span class="offcanvas-brand">David</span>
-        <button class="offcanvas-close" id="offcanvas-close" aria-label="Close menu">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <nav class="offcanvas-nav">
-        <ul class="offcanvas-list">
-          <li>
-            <a href="#home" class="offcanvas-link">
-              <i class="bi bi-house-door"></i>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="#experience" class="offcanvas-link">
-              <i class="bi bi-person-workspace"></i>
-              <span>Experience</span>
-            </a>
-          </li>
-          <li>
-            <a href="#portfolio" class="offcanvas-link">
-              <i class="bi bi-briefcase"></i>
-              <span>Portfolio</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="offcanvas-footer">
-        <div class="offcanvas-social">
-          <a href="https://wa.me/6281333852187" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="https://www.instagram.com/davidbukangadgetin" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/david-yusaku-setiyono" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="https://t.me/davidyusaku" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
         </div>
       </div>
-    </div>
+    </main>
 
-    <script src="app.js"></script>
+    <script>
+      // Auto-detect system theme
+      function applyTheme() {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+
+      // Apply theme on load
+      applyTheme();
+
+      // Listen for system theme changes
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
+
+      function switchTab(tabId) {
+        // Remove active class from all buttons
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.remove("tab-active", "text-white");
+          btn.classList.add("text-slate-500", "dark:text-slate-400");
+        });
+
+        // Add active class to clicked button
+        const activeBtn = document.getElementById(`tab-${tabId}`);
+        activeBtn.classList.add("tab-active", "text-white");
+        activeBtn.classList.remove("text-slate-500", "dark:text-slate-400");
+
+        // Hide all content sections
+        document.querySelectorAll(".content-section").forEach((section) => {
+          section.classList.add("hidden");
+        });
+
+        // Show selected content section
+        document.getElementById(`content-${tabId}`).classList.remove("hidden");
+      }
+    </script>
   </body>
 </html>
