@@ -154,6 +154,38 @@
         transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
       }
 
+      /* Animated text gradient for name */
+      .name-gradient {
+        background: linear-gradient(
+          90deg,
+          #1e293b,
+          #8b5cf6,
+          #1e293b
+        );
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background-position var(--timing-slow) var(--easing-elegant);
+      }
+
+      .dark .name-gradient {
+        background: linear-gradient(
+          90deg,
+          #ffffff,
+          #a78bfa,
+          #ffffff
+        );
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .name-gradient:hover {
+        background-position: 100% center;
+      }
+
       /* Light mode timeline border */
       .dark .timeline-border {
         border-color: rgb(51, 65, 85);
@@ -399,7 +431,7 @@
           </div>
 
           <h1
-            class="text-3xl font-bold text-slate-800 dark:text-white mb-2 tracking-tight"
+            class="name-gradient text-3xl font-bold mb-2 tracking-tight cursor-default"
           >
             David Yusaku Setiyono
           </h1>
