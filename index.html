@@ -273,6 +273,27 @@
         background-size: 200% 100%;
         animation: shimmer 3s ease-in-out infinite;
       }
+
+      /* Timeline slide-in animation */
+      .timeline-item {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity var(--timing-slow) var(--easing-elegant),
+                    transform var(--timing-slow) var(--easing-elegant);
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .timeline-item:hover {
+        transform: translateX(5px);
+        background: rgba(139, 92, 246, 0.05);
+        border-radius: 12px;
+        padding: 8px;
+        margin: -8px;
+      }
     </style>
   </head>
   <body
@@ -484,7 +505,7 @@
               class="space-y-6 relative border-l timeline-border ml-3 pl-8 pb-4"
             >
               <!-- Item 1 -->
-              <div class="relative">
+              <div class="timeline-item relative">
                 <span
                   class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-slate-400 dark:bg-slate-600"
                 ></span>
@@ -521,7 +542,7 @@
               </div>
 
               <!-- Item 2 -->
-              <div class="relative">
+              <div class="timeline-item relative">
                 <span
                   class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-accent"
                 ></span>
@@ -565,7 +586,7 @@
               </div>
 
               <!-- Item 3 -->
-              <div class="relative">
+              <div class="timeline-item relative">
                 <span
                   class="absolute -left-[39px] top-1 w-5 h-5 rounded-full border-4 timeline-dot bg-accent"
                 ></span>
@@ -788,6 +809,26 @@
         // Show selected content section
         document.getElementById(`content-${tabId}`).classList.remove("hidden");
       }
+
+      // Timeline animation on scroll
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.timeline-item').forEach((item) => {
+        timelineObserver.observe(item);
+      });
     </script>
   </body>
 </html>
