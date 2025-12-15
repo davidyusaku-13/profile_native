@@ -315,6 +315,30 @@
       a[href]:hover::after {
         width: 100%;
       }
+
+      /* Enhanced tab transitions */
+      .tab-btn {
+        position: relative;
+        transition: all var(--timing-medium) var(--easing-elegant);
+      }
+
+      .tab-btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 0.75rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+        opacity: 0;
+        transition: opacity var(--timing-fast) var(--easing-smooth);
+      }
+
+      .tab-btn:hover::before {
+        opacity: 1;
+      }
+
+      .tab-active {
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+      }
     </style>
   </head>
   <body
