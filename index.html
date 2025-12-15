@@ -186,6 +186,17 @@
         background-position: 100% center;
       }
 
+      /* Section header animation */
+      .section-header {
+        transition: letter-spacing var(--timing-medium) var(--easing-elegant),
+                    color var(--timing-fast) var(--easing-smooth);
+      }
+
+      .section-header:hover {
+        letter-spacing: 0.05em;
+        color: #8b5cf6;
+      }
+
       /* Light mode timeline border */
       .dark .timeline-border {
         border-color: rgb(51, 65, 85);
@@ -502,7 +513,7 @@
             class="content-section h-full flex flex-col justify-center fade-in"
           >
             <h2
-              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3"
+              class="section-header text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3"
             >
               <span
                 class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center text-accent text-sm"
@@ -583,7 +594,7 @@
             class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
           >
             <h2
-              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
+              class="section-header text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
             >
               <span
                 class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 text-sm"
@@ -735,7 +746,7 @@
             class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
           >
             <h2
-              class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
+              class="section-header text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
             >
               <span
                 class="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400 text-sm"
