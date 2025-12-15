@@ -155,6 +155,41 @@
       .timeline-dot {
         border-color: rgb(241, 245, 249);
       }
+
+      /* Staggered fade-in for tech stack */
+      .tech-tag {
+        opacity: 0;
+        animation: fadeInUp var(--timing-medium) var(--easing-elegant) forwards;
+      }
+
+      .tech-tag:nth-child(1) { animation-delay: 0ms; }
+      .tech-tag:nth-child(2) { animation-delay: 50ms; }
+      .tech-tag:nth-child(3) { animation-delay: 100ms; }
+      .tech-tag:nth-child(4) { animation-delay: 150ms; }
+      .tech-tag:nth-child(5) { animation-delay: 200ms; }
+      .tech-tag:nth-child(6) { animation-delay: 250ms; }
+      .tech-tag:nth-child(7) { animation-delay: 300ms; }
+      .tech-tag:nth-child(8) { animation-delay: 350ms; }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tech tag hover bounce */
+      .tech-tag {
+        transition: transform var(--timing-fast) var(--easing-bounce);
+      }
+
+      .tech-tag:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
     </style>
   </head>
   <body
@@ -309,35 +344,35 @@
               </h3>
               <div class="flex flex-wrap gap-2">
                 <span
-                  class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm"
                   >React</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 text-sm"
                   >JavaScript</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm"
                   >TypeScript</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-sm"
                   >Tailwind CSS</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 text-sm"
                   >Bun</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-sm"
                   >PHP</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-blue-600/10 text-blue-500 border border-blue-600/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-blue-600/10 text-blue-500 border border-blue-600/20 text-sm"
                   >Python</span
                 >
                 <span
-                  class="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 text-sm"
+                  class="tech-tag px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 text-sm"
                   >Qt (PySide)</span
                 >
               </div>
