@@ -241,6 +241,38 @@
       .profile-ring {
         animation: rotateGradient 8s linear infinite;
       }
+
+      /* Shimmer effect for availability badge */
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+
+      .availability-badge {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .availability-badge::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        background-size: 200% 100%;
+        animation: shimmer 3s ease-in-out infinite;
+      }
     </style>
   </head>
   <body
@@ -375,7 +407,7 @@
             </p>
             <div class="mb-8">
               <div
-                class="p-4 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center gap-3"
+                class="availability-badge p-4 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center gap-3"
               >
                 <span
                   class="w-3 h-3 rounded-full bg-green-500 animate-pulse"
