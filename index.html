@@ -294,6 +294,27 @@
         padding: 8px;
         margin: -8px;
       }
+
+      /* Enhanced link underline effect */
+      a[href] {
+        position: relative;
+        text-decoration: none;
+      }
+
+      a[href]::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: currentColor;
+        transition: width var(--timing-medium) var(--easing-elegant);
+      }
+
+      a[href]:hover::after {
+        width: 100%;
+      }
     </style>
   </head>
   <body
