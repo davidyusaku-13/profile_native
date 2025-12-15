@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Skill(frontend-design:frontend-design)",
-      "Skill(superpowers:brainstorming)"
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:using-git-worktrees)",
+      "Bash(git worktree add:*)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(start index.html)",
+      "Bash(git show:*)",
+      "Skill(superpowers:finishing-a-development-branch)",
+      "Bash(git merge-base:*)",
+      "Bash(git checkout:*)",
+      "Bash(git pull:*)",
+      "Bash(git merge:*)",
+      "Bash(git branch:*)",
+      "Bash(git worktree:*)"
     ]
   }
 }
