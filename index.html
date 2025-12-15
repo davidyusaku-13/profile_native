@@ -97,6 +97,18 @@
         }
       }
 
+      /* Enhanced button effects */
+      button, a {
+        transition: transform var(--timing-medium) var(--easing-elegant),
+                    box-shadow var(--timing-medium) var(--easing-elegant),
+                    background-color var(--timing-fast) var(--easing-smooth),
+                    color var(--timing-fast) var(--easing-smooth);
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
       /* Light mode timeline border */
       .dark .timeline-border {
         border-color: rgb(51, 65, 85);
@@ -179,7 +191,7 @@
           </div>
 
           <button
-            class="w-full py-3 rounded-xl bg-slate-200 dark:bg-slate-700/30 border border-slate-300 dark:border-slate-600 hover:bg-accent hover:border-accent text-slate-700 dark:text-white font-medium transition-all duration-300 group-hover:shadow-lg shadow-accent/20 flex items-center justify-center gap-2 hover:text-white"
+            class="w-full py-3 rounded-xl bg-slate-200 dark:bg-slate-700/30 border border-slate-300 dark:border-slate-600 hover:bg-accent hover:border-accent text-slate-700 dark:text-white font-medium transition-all duration-300 group-hover:shadow-lg shadow-accent/20 flex items-center justify-center gap-2 hover:text-white hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
             onclick="window.open('https://wa.me/6281333852187', '_blank')"
           >
             <i class="fa-brands fa-whatsapp"></i> Contact Me
