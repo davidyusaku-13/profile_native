@@ -167,104 +167,7 @@ Create a premium, interactive feel with a custom cursor that responds to differe
 
 ---
 
-## Feature 3: Progressive Disclosure with Expand/Collapse
-
-### Purpose
-Reduce cognitive load by showing project summaries by default, with option to expand for full details. Keeps interface clean while allowing deep dives.
-
-### Visual Design
-
-**Default State (Collapsed):**
-- Show project title, date range, and first 2 lines of description (~80 characters)
-- Subtle gradient fade at text cutoff point
-- "Read more" button with down chevron icon
-- Tech tags always visible (they're quick to scan)
-
-**Expanded State:**
-- Full description text revealed
-- "Show less" button with up chevron icon
-- Smooth height transition (400ms with elegant easing)
-- Links (GitHub, Live Demo) appear with slide-in animation
-
-**Visual Indicators:**
-- **Collapsed**: Description limited to 2 lines with "..." ellipsis, gradient overlay, "Read more ↓" button (accent color)
-- **Expanded**: Full description height, no gradient overlay, "Show less ↑" button (muted color)
-
-### Implementation
-
-**CSS:**
-```css
-.timeline-item-description {
-  position: relative;
-  overflow: hidden;
-  transition: max-height var(--timing-slow) var(--easing-elegant);
-}
-
-.timeline-item-description.collapsed {
-  max-height: 3em; /* ~2 lines */
-}
-
-.timeline-item-description.collapsed::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1.5em;
-  background: linear-gradient(to bottom, transparent, var(--bg-color));
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity var(--timing-medium) var(--easing-smooth);
-}
-
-.timeline-item-description.expanded::after {
-  opacity: 0;
-}
-
-.expand-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 8px;
-  font-size: 0.875rem;
-  color: #8b5cf6;
-  cursor: pointer;
-  transition: transform var(--timing-fast) var(--easing-bounce);
-}
-
-.expand-toggle:hover {
-  transform: translateY(-2px);
-}
-
-.expand-toggle i {
-  transition: transform var(--timing-medium) var(--easing-elegant);
-}
-
-.expand-toggle.expanded i {
-  transform: rotate(180deg);
-}
-```
-
-**JavaScript Logic:**
-- Toggle `collapsed`/`expanded` classes on click
-- Calculate natural height: `element.scrollHeight`
-- Animate from current height to target height
-- Store expanded state per item (optional: localStorage persistence)
-- Links fade in with staggered delay when expanding
-- Respect `prefers-reduced-motion` (instant toggle, no animation)
-
-**Smart Defaults:**
-- Items with short descriptions (< 100 chars) stay expanded by default
-- First timeline item starts expanded to show the pattern
-- Subsequent items start collapsed to reduce initial cognitive load
-
-**Target Elements:**
-- All `.timeline-item` elements in Resume section
-- Project descriptions in timeline
-
----
-
-## Feature 4: Swipe Gestures for Mobile Navigation
+## Feature 3: Swipe Gestures for Mobile Navigation
 
 ### Purpose
 Provide native mobile app-like navigation with horizontal swipe gestures to switch between tabs, making the interface more intuitive on touch devices.
@@ -423,7 +326,6 @@ Provide native mobile app-like navigation with horizontal swipe gestures to swit
 ### Testing Checklist
 - [ ] Test scroll progress on different content lengths
 - [ ] Verify cursor effects on various interactive elements
-- [ ] Test expand/collapse on all timeline items
 - [ ] Test swipe gestures on iOS and Android
 - [ ] Verify all features respect `prefers-reduced-motion`
 - [ ] Test on desktop (Chrome, Firefox, Safari, Edge)
@@ -447,13 +349,85 @@ No changes to deployment process. Standard Cloudflare Workers deployment via `wr
 
 ### Future Enhancements (Out of Scope)
 - Keyboard shortcuts for tab navigation
-- Persistent state (localStorage for expanded items)
 - Analytics tracking for user interactions
 - Additional cursor states for specific interactions
 - Scroll-triggered animations for other elements
 
 ---
 
+## Deferred Features
+
+### Progressive Disclosure with Expand/Collapse
+
+**Status:** Deferred - Not implemented in initial release
+
+**Reason for Deferral:** During implementation, analysis revealed that all timeline item descriptions are short enough (2-3 lines) that progressive disclosure would add unnecessary complexity without providing value. The descriptions are already concise and don't require collapsing to reduce cognitive load.
+
+**Original Purpose:** Reduce cognitive load by showing project summaries by default, with option to expand for full details.
+
+**Acceptance Criteria for Future Implementation:**
+- Timeline items have descriptions longer than 100 characters that would benefit from collapsing
+- User feedback indicates desire for cleaner initial view
+- New projects added with significantly longer descriptions
+
+**Implementation Specification:**
+
+**Visual Design:**
+- **Collapsed State**: Show first 2 lines (~80 chars) with gradient fade, "Read more ↓" button
+- **Expanded State**: Full description, "Show less ↑" button, links fade in with stagger
+
+**Technical Requirements:**
+```css
+.timeline-item-description {
+  position: relative;
+  overflow: hidden;
+  transition: max-height var(--timing-slow) var(--easing-elegant);
+}
+
+.timeline-item-description.collapsed {
+  max-height: 3em;
+}
+
+.timeline-item-description.collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5em;
+  background: linear-gradient(to bottom, transparent, var(--bg-color));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--timing-medium) var(--easing-smooth);
+}
+
+.expand-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: #8b5cf6;
+  cursor: pointer;
+  transition: transform var(--timing-fast) var(--easing-bounce);
+}
+```
+
+**JavaScript Logic:**
+- Toggle collapsed/expanded classes on click
+- Animate height using `element.scrollHeight` → `max-height`
+- Optional localStorage persistence for state
+- Respect `prefers-reduced-motion`
+
+**Smart Defaults:**
+- Items < 100 chars stay expanded
+- First item starts expanded
+- Subsequent items start collapsed
+
+**Follow-up PR:** To be created when acceptance criteria are met
+
+---
+
 ## Conclusion
 
-These four enhancements work together to create a more polished, interactive, and user-friendly portfolio experience. The scroll progress indicators improve navigation feedback, custom cursor adds premium interactivity, progressive disclosure reduces cognitive load, and swipe gestures provide native mobile feel. All features maintain the existing design language and respect accessibility preferences.
+These three enhancements work together to create a more polished, interactive, and user-friendly portfolio experience. The scroll progress indicators improve navigation feedback, custom cursor adds premium interactivity, and swipe gestures provide native mobile feel. All features maintain the existing design language and respect accessibility preferences.
