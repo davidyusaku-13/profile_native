@@ -408,31 +408,8 @@
         will-change: auto;
       }
 
-      /* Scroll Progress Indicators */
-      .scroll-progress-container {
-        position: absolute;
-        right: 8px;
-        top: 16px;
-        bottom: 16px;
-        width: 2px;
-        background: rgba(139, 92, 246, 0.1);
-        border-radius: 999px;
-        opacity: 0;
-        transition: opacity var(--timing-medium) var(--easing-smooth);
-      }
 
-      .scroll-progress-container.visible {
-        opacity: 1;
-      }
 
-      .scroll-progress-bar {
-        width: 100%;
-        background: linear-gradient(180deg, #8b5cf6, #a78bfa);
-        border-radius: 999px;
-        transform-origin: top;
-        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
-      }
 
 
 
@@ -639,11 +616,6 @@
             id="content-resume"
             class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
           >
-            <!-- Scroll Progress Indicator -->
-            <div class="scroll-progress-container">
-              <div class="scroll-progress-bar" style="transform: scaleY(0);"></div>
-            </div>
-
             <h2
               class="section-header text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
             >
@@ -796,11 +768,6 @@
             id="content-portfolio"
             class="content-section hidden md:h-full md:overflow-y-auto no-scrollbar fade-in"
           >
-            <!-- Scroll Progress Indicator -->
-            <div class="scroll-progress-container">
-              <div class="scroll-progress-bar" style="transform: scaleY(0);"></div>
-            </div>
-
             <h2
               class="section-header text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3 sticky top-0 backdrop-blur-sm py-2 z-10"
             >
@@ -998,40 +965,7 @@
         timelineObserver.observe(item);
       });
 
-      // ===== FEATURE 1: Scroll Progress Indicators =====
-      function updateScrollProgress() {
-        const scrollableSections = document.querySelectorAll('.md\\:overflow-y-auto');
 
-        scrollableSections.forEach(section => {
-          const progressContainer = section.querySelector('.scroll-progress-container');
-          const progressBar = section.querySelector('.scroll-progress-bar');
-
-          if (!progressContainer || !progressBar) return;
-
-          const isScrollable = section.scrollHeight > section.clientHeight;
-
-          if (isScrollable) {
-            progressContainer.classList.add('visible');
-
-            const scrollPercentage = (section.scrollTop / (section.scrollHeight - section.clientHeight));
-            progressBar.style.transform = `scaleY(${scrollPercentage})`;
-          } else {
-            progressContainer.classList.remove('visible');
-          }
-        });
-      }
-
-      // Debounce scroll events
-      let scrollTimeout;
-      document.querySelectorAll('.md\\:overflow-y-auto').forEach(section => {
-        section.addEventListener('scroll', () => {
-          if (scrollTimeout) clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(updateScrollProgress, 16);
-        });
-      });
-
-      // Initial check
-      setTimeout(updateScrollProgress, 300);
 
 
 
