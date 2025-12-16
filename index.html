@@ -434,68 +434,7 @@
         box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
       }
 
-      /* Custom Cursor Effects */
-      body.custom-cursor-active,
-      body.custom-cursor-active * {
-        cursor: none !important;
-      }
 
-      .custom-cursor {
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        mix-blend-mode: difference;
-      }
-
-      .cursor-dot {
-        width: 8px;
-        height: 8px;
-        background: #8b5cf6;
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 200ms var(--easing-bounce),
-                    height 200ms var(--easing-bounce);
-      }
-
-      .cursor-ring {
-        width: 32px;
-        height: 32px;
-        border: 2px solid #8b5cf6;
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 300ms var(--easing-elegant),
-                    height 300ms var(--easing-elegant),
-                    border-radius 300ms var(--easing-elegant);
-        filter: blur(0.5px);
-        opacity: 0.6;
-      }
-
-      .cursor-dot.hover {
-        width: 12px;
-        height: 12px;
-      }
-
-      .cursor-ring.hover {
-        width: 48px;
-        height: 48px;
-        opacity: 0.8;
-      }
-
-      .cursor-dot.click {
-        width: 6px;
-        height: 6px;
-      }
-
-      .cursor-ring.click {
-        width: 24px;
-        height: 24px;
-      }
 
       /* Swipe Gestures */
       .content-section {
@@ -565,11 +504,7 @@
   <body
     class="bg-slate-100 dark:bg-dark text-slate-600 dark:text-slate-300 font-sans min-h-screen md:h-screen w-full md:overflow-hidden overflow-y-auto flex items-center justify-center selection:bg-accent selection:text-white relative transition-colors duration-300"
   >
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="cursor" style="display: none;">
-      <div class="cursor-dot" id="cursor-dot"></div>
-      <div class="cursor-ring" id="cursor-ring"></div>
-    </div>
+
 
     <!-- Abstract Background Shapes -->
     <div
@@ -1157,75 +1092,7 @@
       // Initial check
       setTimeout(updateScrollProgress, 300);
 
-      // ===== FEATURE 2: Enhanced Cursor Effects =====
-      const cursor = document.getElementById('cursor');
-      const cursorDot = document.getElementById('cursor-dot');
-      const cursorRing = document.getElementById('cursor-ring');
 
-      // Check if device has fine pointer (mouse)
-      const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (hasFinePointer && !prefersReducedMotion) {
-        cursor.style.display = 'block';
-        document.body.classList.add('custom-cursor-active');
-
-        let mouseX = 0, mouseY = 0;
-        let dotX = 0, dotY = 0;
-        let ringX = 0, ringY = 0;
-
-        // Track mouse position
-        document.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-
-        // Smooth cursor animation with lerp
-        function animateCursor() {
-          // Dot follows immediately
-          dotX = mouseX;
-          dotY = mouseY;
-
-          // Ring lags behind for magnetic effect
-          ringX += (mouseX - ringX) * 0.15;
-          ringY += (mouseY - ringY) * 0.15;
-
-          // Position the parent container at cursor position
-          cursor.style.left = dotX + 'px';
-          cursor.style.top = dotY + 'px';
-
-          requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effects on interactive elements
-        const interactiveElements = 'a, button, .tab-btn, .social-icon, .expand-toggle';
-
-        document.addEventListener('mouseover', (e) => {
-          if (e.target.closest(interactiveElements)) {
-            cursorDot.classList.add('hover');
-            cursorRing.classList.add('hover');
-          }
-        });
-
-        document.addEventListener('mouseout', (e) => {
-          if (e.target.closest(interactiveElements)) {
-            cursorDot.classList.remove('hover');
-            cursorRing.classList.remove('hover');
-          }
-        });
-
-        // Click effect
-        document.addEventListener('mousedown', () => {
-          cursorDot.classList.add('click');
-          cursorRing.classList.add('click');
-        });
-
-        document.addEventListener('mouseup', () => {
-          cursorDot.classList.remove('click');
-          cursorRing.classList.remove('click');
-        });
-      }
 
       // ===== FEATURE 3: Swipe Gestures for Mobile =====
       const contentSections = document.querySelectorAll('.content-section');
