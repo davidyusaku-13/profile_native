@@ -374,23 +374,12 @@
         box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
       }
 
-      /* Performance optimizations */
+      /* Performance optimization for continuous animations */
       .profile-ring,
       .blob-1,
       .blob-2,
       .blob-3 {
         will-change: transform;
-      }
-
-      .timeline-item,
-      .tech-tag,
-      .glass-panel {
-        will-change: transform, opacity;
-      }
-
-      /* Remove will-change after animation completes */
-      .timeline-item.visible {
-        will-change: auto;
       }
 
 
