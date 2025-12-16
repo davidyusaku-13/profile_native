@@ -436,68 +436,9 @@
 
 
 
-      /* Swipe Gestures */
+      /* Content sections */
       .content-section {
         position: relative;
-        touch-action: pan-y;
-        transition: transform var(--timing-medium) var(--easing-elegant),
-                    opacity var(--timing-medium) var(--easing-smooth);
-      }
-
-      .content-section.swiping {
-        transition: none;
-      }
-
-      .content-section.swipe-left {
-        animation: slideOutLeft var(--timing-medium) var(--easing-elegant) forwards;
-      }
-
-      .content-section.swipe-right {
-        animation: slideOutRight var(--timing-medium) var(--easing-elegant) forwards;
-      }
-
-      @keyframes slideOutLeft {
-        to {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
-      }
-
-      @keyframes slideOutRight {
-        to {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-      }
-
-      .content-section.slide-in-left {
-        animation: slideInLeft var(--timing-medium) var(--easing-elegant) forwards;
-      }
-
-      .content-section.slide-in-right {
-        animation: slideInRight var(--timing-medium) var(--easing-elegant) forwards;
-      }
-
-      @keyframes slideInLeft {
-        from {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
       }
     </style>
   </head>
@@ -1094,109 +1035,7 @@
 
 
 
-      // ===== FEATURE 3: Swipe Gestures for Mobile =====
-      const contentSections = document.querySelectorAll('.content-section');
-      let touchStartX = 0;
-      let touchStartY = 0;
-      let touchStartTime = 0;
-      let touchEndX = 0;
-      let touchEndY = 0;
-      let isSwiping = false;
-      let swipeDirection = null;
 
-      const swipeThreshold = 50;
-      const velocityThreshold = 0.5;
-
-      contentSections.forEach(section => {
-        section.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-          touchStartY = e.changedTouches[0].screenY;
-          touchStartTime = Date.now();
-        }, { passive: true });
-
-        section.addEventListener('touchmove', (e) => {
-          if (!isSwiping) {
-            const deltaX = Math.abs(e.changedTouches[0].screenX - touchStartX);
-            const deltaY = Math.abs(e.changedTouches[0].screenY - touchStartY);
-
-            // Determine if horizontal or vertical swipe
-            if (deltaX > 10 || deltaY > 10) {
-              if (deltaX > deltaY) {
-                isSwiping = true;
-                section.classList.add('swiping');
-              }
-            }
-          }
-
-          if (isSwiping) {
-            const delta = e.changedTouches[0].screenX - touchStartX;
-            const maxDistance = window.innerWidth;
-            const resistance = 1 - Math.abs(delta) / maxDistance;
-            const translate = delta * Math.max(resistance, 0.2);
-
-            section.style.transform = `translateX(${translate}px)`;
-            section.style.opacity = 1 - Math.abs(delta) / maxDistance * 0.3;
-          }
-        }, { passive: true });
-
-        section.addEventListener('touchend', (e) => {
-          if (!isSwiping) return;
-
-          touchEndX = e.changedTouches[0].screenX;
-          touchEndY = e.changedTouches[0].screenY;
-          const touchEndTime = Date.now();
-
-          const deltaX = touchEndX - touchStartX;
-          const deltaTime = touchEndTime - touchStartTime;
-          const velocity = Math.abs(deltaX) / deltaTime;
-
-          section.classList.remove('swiping');
-
-          // Determine if swipe threshold met
-          if (Math.abs(deltaX) > swipeThreshold || velocity > velocityThreshold) {
-            if (deltaX > 0) {
-              // Swipe right - previous tab
-              swipeDirection = 'right';
-              const prevIndex = (currentTabIndex - 1 + tabs.length) % tabs.length;
-              performSwipe(section, tabs[prevIndex], 'right');
-            } else {
-              // Swipe left - next tab
-              swipeDirection = 'left';
-              const nextIndex = (currentTabIndex + 1) % tabs.length;
-              performSwipe(section, tabs[nextIndex], 'left');
-            }
-          } else {
-            // Cancel swipe - spring back
-            section.style.transform = '';
-            section.style.opacity = '';
-          }
-
-          isSwiping = false;
-        }, { passive: true });
-      });
-
-      function performSwipe(currentSection, targetTabId, direction) {
-        // Animate current section out
-        currentSection.classList.add(`swipe-${direction}`);
-
-        setTimeout(() => {
-          currentSection.classList.remove(`swipe-${direction}`);
-          currentSection.style.transform = '';
-          currentSection.style.opacity = '';
-
-          // Switch to new tab
-          switchTab(targetTabId);
-
-          // Animate new section in
-          const newSection = document.getElementById(`content-${targetTabId}`);
-          const slideDirection = direction === 'left' ? 'right' : 'left';
-          newSection.classList.add(`slide-in-${slideDirection}`);
-
-          setTimeout(() => {
-            newSection.classList.remove(`slide-in-${slideDirection}`);
-          }, 400);
-        }, 400);
-      }
     </script>
   </body>
 </html>
