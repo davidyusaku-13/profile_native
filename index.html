@@ -59,22 +59,7 @@
         scrollbar-width: none; /* Firefox */
       }
 
-      /* Dark mode glass panel */
-      .dark .glass-panel {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: border-color var(--timing-medium) var(--easing-smooth),
-                    box-shadow var(--timing-medium) var(--easing-smooth);
-      }
-
-      .dark .glass-panel:hover {
-        border-color: rgba(139, 92, 246, 0.3);
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
-      }
-
-      /* Light mode glass panel */
+      /* Glass panel - common properties */
       .glass-panel {
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(10px);
@@ -88,6 +73,18 @@
       .glass-panel:hover {
         border-color: rgba(139, 92, 246, 0.3);
         box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
+      }
+
+      /* Glass panel - dark mode overrides */
+      .dark .glass-panel {
+        background: rgba(30, 41, 59, 0.7);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark .glass-panel:hover {
+        border-color: rgba(139, 92, 246, 0.3);
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
       }
 
       .tab-active {
